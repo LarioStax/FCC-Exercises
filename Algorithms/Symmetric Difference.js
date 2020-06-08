@@ -7,8 +7,8 @@
 // Symmetric difference is a binary operation, which means it operates on 
 // only two elements. So to evaluate an expression involving symmetric 
 // differences among three elements (A △ B △ C), you must complete one 
-// operation at a time. Thus, for sets A and B above, 
-// and C = {2, 3}, A △ B △ C = (A △ B) △ C = {1, 4} △ {2, 3} = {1, 2, 3, 4}.
+// operation at a time. Thus, for sets A and B above, and C = {2, 3}, 
+// A △ B △ C = (A △ B) △ C = {1, 4} △ {2, 3} = {1, 2, 3, 4}.
 
 
 // Create a function that takes two or more arrays and returns an array 
@@ -16,7 +16,44 @@
 // unique values (no duplicates).
 
 function sym(args) {
+
   return args;
 }
 
 sym([1, 2, 3], [5, 2, 1, 4]);
+
+
+function sym(args) {
+  let setArguments = [...arguments].map(arg => [...new Set(arg)]);
+  let result = [];
+  result = setArguments.reduce(function (acc, next) {
+    return acc
+      .filter(num => next.indexOf(num) < 0)
+      .concat(next.filter(num => acc.indexOf(num) < 0))
+  }, [])
+  console.log(result);
+  return result;
+}
+
+function sym(args) {
+  let arrArguments = Array.from(arguments);
+  let result = [];
+  result = arrArguments.reduce(function (acc, next) {
+    return acc
+      .filter(num => next.indexOf(num) < 0)
+      .concat(next.filter(num => acc.indexOf(num) < 0))
+  }, [])
+  console.log([...new Set(result)])
+  return [...new Set(result)];
+}
+
+function sym(args) {
+  return [...new Set(
+    Array.from(arguments)
+      .reduce((acc, next) => {
+        return acc
+          .filter(num => next.indexOf(num) < 0)
+          .concat(next.filter(num => acc.indexOf(num) < 0))
+      }, [])
+  )]
+}
