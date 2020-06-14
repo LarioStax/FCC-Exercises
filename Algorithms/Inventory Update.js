@@ -127,3 +127,27 @@ var newInv = [
 ];
 
 updateInventory(curInv, newInv);
+
+
+
+//Beautiful solution from someone else
+function updateInventory(arr1, arr2) {
+  for (let [quantity, name] of arr2) {
+    const index = getItemIndex(arr1, name);
+    if (index === -1) {
+      arr1.push([quantity, name]);
+    } else {
+      arr1[index][0] += quantity;
+    }
+  }
+  return arr1.sort(([q1, n1], [q2, n2]) => n1.localeCompare(n2));
+}
+
+var getItemIndex = function (arr1, name) {
+  for (var i = 0; i < arr1.length; i++) {
+    if (arr1[i][1] === name) {
+      return i;
+    }
+  }
+  return -1;
+};
