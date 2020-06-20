@@ -23,3 +23,24 @@ function pairwise(arr, arg) {
 }
 
 pairwise([1,4,2,3,0,5], 7);
+
+
+function pairwise(arr, arg) {
+  let arrCopy = [...arr];
+  let result = 0;
+  //find correct number Pair
+  //if it exists in the array and is not the same number
+  //add indices of both of them to the result
+  //set them all to undefined to prevent them being used again
+  arrCopy.forEach( (num, index) => {
+    let numPair = arg - num;
+    if (arrCopy.indexOf(numPair) !== -1 && arrCopy.indexOf(numPair) !== index) {
+      result += arrCopy.indexOf(numPair);
+      result += index;
+      arrCopy[arrCopy.indexOf(numPair)] = undefined;
+      arrCopy[index] = undefined;
+    }
+  })
+  console.log(result);
+  return result;
+}
