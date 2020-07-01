@@ -25,3 +25,30 @@ function selectionSort(array) {
 
 
 selectionSort([1, 4, 2, 8, 345, 123, 43, 32, 5643, 63, 123, 43, 2, 55, 1, 234, 92]);
+
+
+function selectionSort(array) {
+  // change code below this line
+  let result = [...array];
+  let smallest;
+
+  for (let i = 0; i<result.length; i++) {
+    smallest = i;
+    for (let j = i+1; j<result.length; j++) {
+      if ( result[j] < result[smallest]) {
+        smallest = j;
+      }
+    }
+    if (smallest !== i) {
+      let temp = result[i];
+      result[i] = result[smallest];
+      result[smallest] = temp;
+    }
+  }
+  
+  return result;
+  // change code above this line
+}
+
+
+selectionSort([1, 4, 2, 8, 345, 123, 43, 32, 5643, 63, 123, 43, 2, 55, 1, 234, 92]);
