@@ -25,3 +25,24 @@ function insertionSort(array) {
 }
 
 insertionSort([1, 4, 2, 8, 345, 123, 43, 32, 5643, 63, 123, 43, 2, 55, 1, 234, 92]);
+
+
+
+function insertionSort(array) {
+  // change code below this line
+  let result = [...array];
+  for (let i = 1; i < result.length; i++) {
+    let value = result[i];
+    let j = i - 1;
+    while (value < result[j]) {
+      result[j+1] = result[j];
+      j = j - 1;
+    }
+    result[j + 1] = value;
+  }
+  console.log(result);
+  return result;
+  // change code above this line
+}
+
+insertionSort([1, 4, 2, 8, 345, 123, 43, 32, 5643, 63, 123, 43, 2, 55, 1, 234, 92]);
