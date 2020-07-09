@@ -21,7 +21,7 @@ function generate(k, arr) {
   } else {
     for (let i = 0; i < k; i++) {
       if (k % 2 == 0) {
-        swap(arr, i, i - 1))
+        swap(arr, i, i - 1)
       } else {
         swap(arr, 0, i - 1);
       }
