@@ -41,10 +41,29 @@
 // array to see your sorting algorithm in action!
 
 function mergeSort(array) {
-  // change code below this line
 
-  // change code above this line
-  return array;
+  if (array.length < 2) {
+    return array;
+  }
+
+  let half = Math.floor(array.length / 2);
+  let firstHalf = array.splice(0, half);
+
+  return merge(mergeSort(firstHalf), mergeSort(array));
+}
+
+function merge(firstHalf, secondHalf) {
+  let result = [];
+
+  while (firstHalf.length > 0 && secondHalf.length > 0) {
+    if (firstHalf[0] < secondHalf[0]) {
+      result.push(firstHalf.shift());
+    } else {
+      result.push(secondHalf.shift());
+    }
+  }
+
+  return [...result, ...firstHalf, ...secondHalf];
 }
 
 mergeSort([1, 4, 2, 8, 345, 123, 43, 32, 5643, 63, 123, 43, 2, 55, 1, 234, 92]);
