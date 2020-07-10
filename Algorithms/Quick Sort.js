@@ -27,10 +27,31 @@
 
 function quickSort(array) {
   // change code below this line
+  if (array.length < 2) {
+    return array;
+  }
 
+  let center = Math.floor(array.length/2);
+  let pivot = array[center];
+
+  let left = [];
+  let right = [];
+  let middle = [];
+
+  for (let i = 0; i<array.length; i++) {
+    if (array[i] > pivot) {
+      right.push(array[i]);
+    } else if (array[i] < pivot) {
+      left.push(array[i]);
+    } else if (array[i] === pivot) {
+      middle.push(array[i]);
+    }
+  }
   // change code above this line
-  return array;
+  console.log(quickSort(left).concat(middle).concat(quickSort(right)));
+  return quickSort(left).concat(middle).concat(quickSort(right))
 }
+
 
 // test array:
 // [1, 4, 2, 8, 345, 123, 43, 32, 5643, 63, 123, 43, 2, 55, 1, 234, 92]
