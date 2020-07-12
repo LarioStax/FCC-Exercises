@@ -64,5 +64,6 @@
 // view of it called i32View.
 
 
-var buffer;
-var i32View;
+let byteSize = 64;
+let buffer = new ArrayBuffer(byteSize);
+let i32View = new Int32Array(buffer);
