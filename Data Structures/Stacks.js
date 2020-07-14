@@ -63,3 +63,33 @@ function Stack() {
 
   // Only change code above this line
 }
+
+
+function Stack() {
+  var collection = [];
+  this.print = function() {
+    console.log(collection);
+  };
+  // Only change code below this line
+  this.push = function(input) {
+    collection = [...collection, input];
+  }
+  this.pop = function() {
+    return collection.splice(-1, 1); //fcc test won't accept this, not sure why
+    // return collection.pop();
+  }
+  // Only change code above this line
+  this.peek = function() {
+    return collection[collection.length-1];
+  }
+  this.isEmpty = function() {
+    if (collection.length < 1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  this.clear = function() {
+    collection = [];
+  }
+}
