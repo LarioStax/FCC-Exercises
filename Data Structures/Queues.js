@@ -30,3 +30,32 @@ function Queue() {
 
   // Only change code above this line
 }
+
+function Queue() {
+  var collection = [];
+  this.print = function() {
+    console.log(collection);
+  };
+  // Only change code below this line
+  this.enqueue = function(input) {
+    collection = [...collection, input];
+  };
+  this.dequeue = function() {
+    //return collection.splice(0, 1);
+    return collection.shift();
+  };
+  this.front = function() {
+    return collection[0];
+  }
+  this.size = function() {
+    return collection.length;
+  }
+  this.isEmpty = function() {
+    if (collection.length < 1 ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  // Only change code above this line
+}
