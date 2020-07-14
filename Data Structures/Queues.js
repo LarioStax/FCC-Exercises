@@ -23,7 +23,7 @@
 
 function Queue() {
   var collection = [];
-  this.print = function() {
+  this.print = function () {
     console.log(collection);
   };
   // Only change code below this line
@@ -33,25 +33,25 @@ function Queue() {
 
 function Queue() {
   var collection = [];
-  this.print = function() {
+  this.print = function () {
     console.log(collection);
   };
   // Only change code below this line
-  this.enqueue = function(input) {
+  this.enqueue = function (input) {
     collection = [...collection, input];
   };
-  this.dequeue = function() {
+  this.dequeue = function () {
     //return collection.splice(0, 1);
     return collection.shift();
   };
-  this.front = function() {
+  this.front = function () {
     return collection[0];
   }
-  this.size = function() {
+  this.size = function () {
     return collection.length;
   }
-  this.isEmpty = function() {
-    if (collection.length < 1 ) {
+  this.isEmpty = function () {
+    if (collection.length < 1) {
       return true;
     } else {
       return false;
@@ -90,12 +90,48 @@ function Queue() {
 // the priority. The dequeue should return only the current item, not its priority.
 
 
-function PriorityQueue () {
+function PriorityQueue() {
   this.collection = [];
-  this.printCollection = function() {
+  this.printCollection = function () {
     console.log(this.collection);
   };
   // Only change code below this line
 
+  // Only change code above this line
+}
+
+
+function PriorityQueue() {
+  this.collection = [];
+  this.printCollection = function () {
+    console.log(this.collection);
+  };
+  // Only change code below this line
+  this.enqueue = function (input) {
+    let inputPriority = input[1];
+    let correctIndex;
+    this.collection.forEach( function (element, index) {
+      if (element[1] <= inputPriority) {
+        correctIndex = index+1;
+      }
+    })
+    this.collection.splice(correctIndex, 0, input);
+  }
+  this.dequeue = function () {
+    if (this.collection.length === 0) {
+      return console.log("Empty array!");
+    } else {
+      return this.collection.shift()[0];
+    }
+  }
+  this.front = function () {
+    return collection[0];
+  }
+  this.size = function () {
+    return this.collection.length;
+  }
+  this.isEmpty = function () {
+    return this.collection.length === 0;
+  }
   // Only change code above this line
 }
