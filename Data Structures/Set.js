@@ -44,12 +44,55 @@ class Set {
   }
 
   // change code below this line
-  
+
   // write your add method here
 
   // write your remove method here
 
   // write your size method here
 
+  // change code above this line
+}
+
+
+
+class Set {
+  constructor() {
+    // Dictionary will hold the items of our set
+    this.dictionary = {};
+    this.length = 0;
+  }
+
+  // This method will check for the presence of an element and return true or false
+  has(element) {
+    return this.dictionary[element] !== undefined;
+  }
+
+  // This method will return all the values in the set as an array
+  values() {
+    return Object.keys(this.dictionary);
+  }
+
+  // change code below this line
+
+  // write your add method here
+  add(item) {
+    if (this.has(item)) {
+      return false;
+    } else {
+      this.dictionary[item] = true;
+      return true;
+    }
+  }
+  // write your remove method here
+  remove(item) {
+    if (this.has(item)) {
+      delete this.dictionary[item]
+    }
+  }
+  // write your size method here
+  size() {
+    return this.values().length;
+  }
   // change code above this line
 }
