@@ -609,5 +609,10 @@ class Set {
     return newSet;
   }
   // change code below this line
+  isSubsetOf(set) {
+    return this.values().every(value => {
+        return set.has(value);
+      })
+  }
   // change code above this line
 }
