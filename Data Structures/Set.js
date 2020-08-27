@@ -739,3 +739,19 @@ function checkSet(arrToBeSet, checkValue){
 }
 
 checkSet([ 1, 2, 3], 2); // Should return [ true, 3 ]
+
+
+function checkSet(arrToBeSet, checkValue){
+
+  // change code below this line
+const set = new Set(arrToBeSet);
+
+let hasValue = set.has(checkValue);
+let howBig = set.size;
+
+return [hasValue, howBig];
+  // change code above this line
+
+}
+
+checkSet([ 1, 2, 3], 2); // Should return [ true, 3 ]
