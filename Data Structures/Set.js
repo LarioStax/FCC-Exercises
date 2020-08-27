@@ -780,3 +780,10 @@ function checkSet(set){
   // change code above this line
 }
 
+function checkSet(set){
+  // change code below this line
+  let setToArr = [...set]
+  return setToArr;
+  // change code above this line
+}
+
