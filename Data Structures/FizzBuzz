@@ -1,0 +1,52 @@
+for (let i = 1; i <= 100; i++) {
+  if (i%15 == 0) { console.log("FizzBuzz")}
+  else if (i%5 == 0) { console.log("Buzz")}
+  else if (i%3 == 0) { console.log("Fizz")}
+  else {console.log(i)};
+}
+
+
+for(let i=1;i<=100; i++)
+  console.log(
+    ( i%3 ? '' : 'Fizz' ) + ( i%5 ? '' : 'Buzz' ) || i
+  )
+
+
+  function fibonnaci(num) {
+    let x = 0;
+    let y = 1;
+
+    while (num > 0) {
+      let temp = y;
+      y = y + x;
+      x = temp;
+      num--;
+    }
+
+    return x;
+  }
+
+  function fibonnaci(num) {
+    let x = 0;
+    let y = 1;
+    while (num > 0) {
+      [x, y] = [y, x];
+      y = y + x ;
+      num--;
+    }
+
+    return x;
+  }
+
+
+
+  function fibonnaci(num) {
+    if (num === 0) {
+      return 0;
+    } 
+    if (num === 1) {
+      return 1;
+    }
+
+    return fibonnaci(num-1) + fibonnaci (num-2);
+  }
