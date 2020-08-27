@@ -34,7 +34,7 @@ var Map = function() {
     this.collection[key] = value;
   }
   this.remove = function(key) {
-    this.collection[key] = undefined;
+    delete this.collection[key];
   }
   this.get = function(key) {
     return this.collection[key];
@@ -48,10 +48,8 @@ var Map = function() {
   this.size = function() {
     return this.values().length
   }
-  this.clear = () => {
-    for(let item of Object.keys(this.collection)) {
-      
-    }
+  this.clear = function() {
+    this.collection = {};
   }
 
   // change code above this line
