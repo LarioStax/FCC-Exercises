@@ -27,3 +27,32 @@ var Map = function() {
   // change code above this line
 };
 
+var Map = function() {
+  this.collection = {};
+  // change code below this line
+  this.add = function(key, value) {
+    this.collection[key] = value;
+  }
+  this.remove = function(key) {
+    this.collection[key] = undefined;
+  }
+  this.get = function(key) {
+    return this.collection[key];
+  }
+  this.has = function(key, value) {
+    return this.collection[key];
+  }
+  this.values = function() {
+    return Object.values(this.collection);
+  }
+  this.size = function() {
+    return this.values().length
+  }
+  this.clear = () => {
+    for(let item of Object.keys(this.collection)) {
+      
+    }
+  }
+
+  // change code above this line
+};
