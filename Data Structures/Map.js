@@ -72,3 +72,8 @@ var Map = function() {
 // value pair freeCodeCamp, Awesome! to it.
 
 // change code below this line
+
+
+// change code below this line
+const myMap = new Map();
+myMap.set("freeCodeCamp", "Awesome!")
